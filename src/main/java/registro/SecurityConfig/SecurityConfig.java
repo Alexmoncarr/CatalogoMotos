@@ -55,10 +55,5 @@ public class SecurityConfig {
         handler.setUseReferer(true); // Usa la URL anterior a la autenticación si está disponible
         return handler;
     }
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(passwordEncoder());
-    }
+    
 }

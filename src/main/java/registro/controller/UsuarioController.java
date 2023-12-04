@@ -32,7 +32,6 @@ public class UsuarioController {
 
     @PostMapping("/registro")
     public String procesarFormularioRegistro(Usuario usuario) {
-        usuario.setContraseña(passwordEncoder().encode(usuario.getPassword()));
         usuarioService.guardarUsuario(usuario);
         return "redirect:/login";
     }
