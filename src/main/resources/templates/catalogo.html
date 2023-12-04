@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Catálogo de Motos</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Estilos personalizados (opcional) -->
+    <style>
+        /* Agrega estilos personalizados aquí si es necesario */
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Catálogo de Motos</h1>
+
+    <div class="row">
+        <!-- Motos -->
+        <div class="col-md-4 mb-4" th:each="moto : ${motos}">
+            <div class="card">
+                <img th:src="@{'/ruta-de-imagenes/' + ${moto.id}.jpg}" class="card-img-top" alt="Imagen de la moto"/>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${moto.nombre}"></h5>
+                    <p class="card-text" th:text="${moto.descripcion}"></p>
+                    <a th:href="@{'/moto/' + ${moto.id}}" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Enlace a Bootstrap JS (opcional, pero necesario para algunos componentes de Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
